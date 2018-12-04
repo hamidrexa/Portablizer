@@ -1,0 +1,12 @@
+Board Information Report
+Filename     : F:\amoozesh\PROJECT\hardtech\sim\Portablizer\Board\Portablizer_PCB.PcbDoc
+Date         : 04/12/2018
+Time         : 06:00:29 ?.?
+Time Elapsed : 00:00:00
+
+Routing Information
+    Routing completion, 99/39%
+    Connections, 165
+    Connections routed, 164
+    Connections remaining, 1
+count : 4
