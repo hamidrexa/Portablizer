@@ -73,7 +73,7 @@ GenerateClassCluster=0
 DocumentUniqueId=FNECLCYW
 
 [Document3]
-DocumentPath=Portablizer.IntLib
+DocumentPath=Portablizer1\Portablizer.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -87,7 +87,24 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=KHYXFHMB
+
+[Document4]
+DocumentPath=..\..\..\gps\GPS\board\PCB_Project\Portablizer_PCB.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=KHKUHUWM
 
 [Configuration1]
 Name=Sources
