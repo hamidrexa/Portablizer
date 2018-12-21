@@ -18,6 +18,9 @@ uint8_t aTxBuffer1[] = "RXNE wake-up successful";
 void SystemClock_Config(void);
 void Error_Handler(void);
 static void MX_GPIO_Init(void);
+ void clean(char* buff,int val){
+	 for(int i=0 ;i<val;i++)buff[i]=0;
+ }
 //static void MX_TIM1_Init(void);
 //static void MX_TIM3_Init(void);
 //static void MX_TIM14_Init(void);
@@ -34,15 +37,25 @@ void delay (int i){
 	i--;
 	}
 }
-void wating(void){
-	//GPIOA->ODR&=0x80;
-GPIOA->ODR=0x10; 
-		delay(3);
-	while(1){
-		 if( (GPIOB->IDR)&(0x20)){while((GPIOB->IDR)&(0x20));}
-		 else{while(!((GPIOB->IDR)&(0x20)));break;}
-		 
-	 }
+ 
+
+void sendcommand(char* command ,char* res,int time){
+	  char response[100];
+		while(strstr(res,response)==NULL){
+			clean(response,100);
+	HAL_UART_Transmit(&huart1, (uint8_t*) command ,strlen(command), 30);
+		HAL_UART_Receive(&huart1,(uint8_t*)response,100,5000);
+	 //HAL_UART_Transmit(&huart1, (uint8_t*) response ,strlen(response), 30);
+		}
+		//HAL_UART_Transmit(&huart1, (uint8_t*)response, COUNTOF(response), 5000);	
+}
+void chekresponse(char* respons){
+	char receive[100];
+	HAL_UART_Receive(&huart1,(uint8_t*)receive,100,10000);
+		HAL_UART_Transmit(&huart1, (uint8_t*) receive ,100, 5000);
+ 	if(strstr(respons,receive)!= NULL){
+				HAL_UART_Transmit(&huart1, (uint8_t*)"yess",4, 5000);
+	}
 }
   int main(void)
 {
@@ -61,11 +74,11 @@ RCC->APB2ENR |= RCC_APB2ENR_TIM1EN; /* (1) */
 //GPIOB->MODER = GPIO_MODER_MODER2_0;
 //GPIOB->OSPEEDR=GPIO_OSPEEDR_OSPEEDR0_Msk;
 	//GPIOB->PUPDR=GPIO_PUPDR_PUPDR0_1;
-	
-	GPIOA->MODER = GPIO_MODER_MODER4_0|GPIO_MODER_MODER5_0|GPIO_MODER_MODER6_0|GPIO_MODER_MODER7_0;
- 
-	GPIOA->PUPDR=GPIO_PUPDR_PUPDR0_1|GPIO_PUPDR_PUPDR1_1 |GPIO_PUPDR_PUPDR4_1|GPIO_PUPDR_PUPDR5_1|GPIO_PUPDR_PUPDR6_1
-	|GPIO_PUPDR_PUPDR7_1|GPIO_PUPDR_PUPDR8_1|GPIO_PUPDR_PUPDR9_1|GPIO_PUPDR_PUPDR11_1;
+//	
+//	GPIOA->MODER = GPIO_MODER_MODER4_0|GPIO_MODER_MODER5_0|GPIO_MODER_MODER6_0|GPIO_MODER_MODER7_0;
+// 
+//	GPIOA->PUPDR=GPIO_PUPDR_PUPDR0_1|GPIO_PUPDR_PUPDR1_1 |GPIO_PUPDR_PUPDR4_1|GPIO_PUPDR_PUPDR5_1|GPIO_PUPDR_PUPDR6_1
+//	|GPIO_PUPDR_PUPDR7_1|GPIO_PUPDR_PUPDR8_1|GPIO_PUPDR_PUPDR9_1|GPIO_PUPDR_PUPDR11_1;
 TIM16->PSC |=1; /* (1) */
 TIM16->ARR = 500- 1; /* (2) */
 TIM16->CCR1 = 500- 1; /* (3) */  
@@ -84,16 +97,12 @@ TIM1->CR1 |= TIM_CR1_CEN; /* (7) */
 
 
 
-int i,j,s;
-char buf8[100];
-char buf5[50];
-char buf[60];
-char hex2[400];
-char bufpax[250];
-char arduino[14];
-double   x1;
  
- 
+char receive[100];
+char* buf5;
+ char* bufpax;
+  bufpax = (char*) malloc (200);
+ buf5 = (char*) malloc (200);
  
 huart1.Instance = USART1;
 HAL_UART_DeInit(&huart1); 
@@ -117,605 +126,89 @@ TIM1->SR &=0xfe;
 // 
 // 
 // }		
-	int pa1,pa2,pa3,pb1,pb2,pb3;
-	double sum;
-	double sumatinon[3];
-	double cont;
-	double m,lastm;
-	
-	int pointer,duty;
-		int*A;
-	A = (int*) malloc (100);
-	int*B;
-	B = (int*) malloc (100);
+ 
+ 
+  char post[6];
+		char* data="salam,eshgham";
+		uint8_t z=0x1a; 
   		GPIOA->ODR=0x10; 
-			
- wating();
 
-duty=0;
-	while((GPIOB->IDR)&(0x20)){
-		delay(1);
-		duty++;
-		 
-	 }
- for( i=0;i<50;i++){
-								buf5[i]=0;
-								}
-						 
-							 sprintf(buf5,"%f",200);
-							int len =strlen(buf5);							
-							sprintf(hex2,"54454A415241545F42414E4B303230303030303030303034303%c3%c3%c3%c3%c3%c3%c3%c3%c3%c3%c",buf5[len-18],buf5[len-17],buf5[len-16],buf5[len-15],buf5[len-14], buf5[len-13],buf5[len-12],buf5[len-11],buf5[len-10],buf5[len-9],buf5[len-8] );
-							char asciiStr[100];
-							for(int i = 0; i < 151; i +=2)
-							{
-								asciiStr[i/2] = getHexVal(hex2[i])*16 + getHexVal(hex2[i+1]);
-								HAL_UART_Transmit(&huart1, (uint8_t*)(asciiStr+i/2), 1, 5000);
-							}
+ //HAL_UART_Transmit(&huart1, (uint8_t*)"ATZ0\n", COUNTOF("ATZ0\n"), 5000);
+// HAL_UART_Transmit(&huart1, (uint8_t*)"ATE0\n", COUNTOF("ATE0\n"), 5000);
+  	sendcommand("ATE0\n" ,"OK",1000);
+ 	sendcommand("AT\n" ,"OK",1000);
+	sendcommand("AT+COPS=4,2,\"43235\"\n","OK",8000);
+	sendcommand("AT+COPS?","+COPS: 1,2,\"43235\"",8000);
+
+
+ HAL_UART_Transmit(&huart1, (uint8_t*)"AT+CPIN?\n", COUNTOF("AT+CPIN?\n"), 5000);
+	HAL_UART_Transmit(&huart1, (uint8_t*)"AT+CREG?\n", COUNTOF("AT+CREG?\n"), 5000);
+	HAL_UART_Transmit(&huart1, (uint8_t*)"AT+CGACT?\n", COUNTOF("AT+CGACT?\n"), 5000);
+ /*HAL_UART_Transmit(&huart1, (uint8_t*)"AT+CMEE=1\n", COUNTOF("AT+CMEE=1\n"), 5000);
+ //HAL_Delay(1000);		
+ HAL_UART_Receive(&huart1,(uint8_t*)receive,100,3000);
+ HAL_UART_Transmit(&huart1,(uint8_t*)receive,100,3000);
+ //clean (receive,100);
+  //HAL_UART_Transmit(&huart1,(uint8_t*)receive,100,3000);
+ while(strstr(receive,"OK")== NULL){
+   clean (receive,100);
+	 HAL_UART_Transmit(&huart1, (uint8_t*)"AT+CGATT=1\n", COUNTOF("AT+CGATT=1\n"), 5000);
+	 HAL_UART_Receive(&huart1,(uint8_t*)receive,100,30);
+	 HAL_UART_Transmit(&huart1,(uint8_t*)receive,100,3000);
+ }
+ */
+ 
+	sendcommand("AT+CMEE=1\n" ,"OK",5000);
+	sendcommand("AT+CSTT=\"bluevia.movistar.es\"\n" ,"OK",5000);
+	sendcommand("AT+CIICR\n" ,"OK",5000);
+	
+//	 HAL_UART_Transmit(&huart1, (uint8_t*)"AT+CSTT=\"bluevia.movistar.es\"\n", COUNTOF("AT+CSTT=\"bluevia.movistar.es\"\n"), 5000);
+//HAL_UART_Transmit(&huart1, (uint8_t*)"AT+CIICR\n", COUNTOF("AT+CIICR\n"), 5000);
+// HAL_UART_Transmit(&huart1, (uint8_t*)"AT+CIFSR\n", COUNTOF("AT+CIFSR\n"), 5000);
+//  
+ 
+
+char socket[45]="AT+CIPSTART=\"TCP\",\"www.fdli.ir\",\"80\"\n";
+		char header[93]= "POST /input2.php HTTP/1.1\r\nHost: www.fdli.ir\r\nContent-Type:application/json;\r\nContent-Length:";
+
 while (1)
   {
- 
-// cont++;
-//		if(cont>900000){
-//					sprintf(buf, "alive\n");
-//  HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000); 
-//			cont=0;
-//			
-//		}
-//		GPIOA->ODR=0x10; 
-//				wating();
-
-//duty=0;
-//	while((GPIOB->IDR)&(0x20)){
-//		delay(1);
-//		duty++;
-//		 
-//	 }
-//			sprintf(buf,"D:%d\n",duty);
-// 				HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);
-
-//		
-// ///send
-// i=0;
-// 
-//		
-//		pa1=0x30;
-//pa2=0x20;
-//pa3=0x10;
-//		
-//pb1=0x01;
-//pb2=0x01;
-//pb3=0x01;
-//i=0;
-//x1=num(pa1,pa2,pa3,pb1,pb2,pb3,&pointer,duty);
-
-//			sprintf(buf,"D:%f\n",x1);
-// 				HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);
- i=0;
- while (((GPIOA->IDR)&(0x600))== 0){
-	 
-
- i++;
- }
-
- if(i>26000){
-	 
-//	 	sprintf(buf,"D:%d\n",i);
-// 			HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);
-	 while((((GPIOA->IDR)&(0x200))<<1)&&((GPIOA->IDR)&(0x400)));
-	 if((((GPIOA->IDR)&(0x600))==0)){
-
-		 for(s=0;s<3;s++)
-		 {
-			 GPIOA->ODR=0x10; 
-			 			  wating();
-
-duty=0;
-	while((GPIOB->IDR)&(0x20)){
-		delay(1);
-		duty++;
+ for(int i=0;i<200;i++)bufpax[i]=0;
+		// HAL_Delay(1000);	 
+		HAL_UART_Transmit(&huart1, (uint8_t*) socket ,45, 2000);	
+		//	 HAL_Delay(1000);	
+	 	HAL_UART_Receive(&huart1,(uint8_t*)bufpax,200,3000);
 		 
-	 }
-			 for(i=0;i<15;i++){
-	A[i]=0;
-	B[i]=0;
-	
+ //	HAL_UART_Transmit(&huart1,(uint8_t*) bufpax,200, 5000);	 
+	 	if(strstr(bufpax,"ALREADY")!= NULL){
+			//	HAL_UART_Transmit(&huart1, (uint8_t*)"yess",4, 5000);
+ 
+ 
+	HAL_Delay(1000);
+	HAL_UART_Transmit(&huart1, (uint8_t*)"AT+CIPSEND\n", COUNTOF("AT+CIPSEND\n"), 5000);
+				HAL_UART_Receive(&huart1,(uint8_t*)buf5,COUNTOF(buf5),3000);
+				if(strstr(buf5,">")!= NULL){
+				 
+				HAL_UART_Transmit(&huart1, (uint8_t*) header , strlen(header), 5000);
+				sprintf(post,"%d\r\n\r\n",strlen(data));
+				HAL_UART_Transmit(&huart1, (uint8_t*) post , strlen(post), 5000);
+				HAL_UART_Transmit(&huart1, (uint8_t*) data , strlen(data), 5000); 
+				HAL_UART_Transmit(&huart1, &z,2, 5000);	
+				}
 }
-
-	
-		 wating();
-		 GPIOA->ODR=0x00; 
-		 for (i=0;i<8;i++){
-		delay(2);
-			 B[i]=(GPIOB->IDR);
-			  	GPIOA->ODR+=0x10; 
-			 
-		 }
-		 A[0]|=(B[3]&0x01)<<6;
-		 A[0]|=(B[2]&0x01)<<7;
-		 A[0]|=(B[1]&0x01)<<2;
-		 
-		 A[1]|=(B[0]&0x01)<<6;
-		 A[1]|=(B[4]&0x01)<<7;
-		 A[1]|=(B[5]&0x01)<<2;
+		else if(strstr(bufpax,"+CME")){
+//		HAL_Delay(1000);	
+//				
+//	HAL_UART_Transmit(&huart1, (uint8_t*)"AT+CREG?\n", COUNTOF("AT+CREG?\n"), 5000);
+//	HAL_UART_Transmit(&huart1, (uint8_t*)"AT+CGACT?\n", COUNTOF("AT+CGACT?\n"), 5000);
+//	HAL_UART_Transmit(&huart1, (uint8_t*)"AT+CMEE=1\n", COUNTOF("AT+CMEE=1\n"), 5000);
+//  HAL_UART_Transmit(&huart1, (uint8_t*)"AT+CGATT=1\n", COUNTOF("AT+CGATT=1\n"), 5000);
+//	HAL_UART_Transmit(&huart1, (uint8_t*)"AT+CSTT=\"bluevia.movistar.es\"\n", COUNTOF("AT+CSTT=\"bluevia.movistar.es\"\n"), 5000);
+//	HAL_UART_Transmit(&huart1, (uint8_t*)"AT+CIICR\n", COUNTOF("AT+CIICR\n"), 5000);
+//	HAL_UART_Transmit(&huart1, (uint8_t*)"AT+CIFSR\n", COUNTOF("AT+CIFSR\n"), 5000);
+ 
 		
-		 A[2]|=(B[6]&0x01)<<6;
-		 A[2]|=(B[7]&0x01)<<7;
-		 A[2]|=(B[4]&0x02)<<1;
-		 
-		  A[3]|=(B[2]&0x02)<<5;
-		  A[3]|=(B[1]&0x02)<<6;
-		  A[3]|=(B[0]&0x02)<<1;
-		 
-		 
-		  A[4]|=(B[5]&0x02)<<5;
-		  A[4]|=(B[6]&0x02)<<6;
-		  A[4]|=(B[7]&0x02)<<1;
-		 
- 		  A[5]|=(B[3]&0x02)<<5;
-		  A[5]|=(B[2]&0x20)<<2;
-		  A[5]|=(B[3]&0x20)>>3;
-			
-			
-			A[6]|=(B[0]&0x20)<<1;
-		  A[6]|=(B[4]&0x20)<<2;
-		  A[6]|=(B[7]&0x20)>>3;
- 
- 			A[7]|=(B[5]&0x20)<<1;
-		  A[7]|=(B[6]&0x20)<<2;
-		  A[7]|=(B[4]&0x08)>>1;
-			
-				A[8]|=(B[5]&0x08)<<3;
-		  A[8]|=(B[6]&0x08)<<4;
-		  A[8]|=(B[7]&0x08)>>1;
-						
-			A[9]|=(B[3]&0x08)<<3;
-		  A[9]|=(B[2]&0x08)<<4;
-		  A[9]|=(B[1]&0x08)>>1;
-			
-			A[10]|=(B[0]&0x08)<<3;
-		  A[10]|=(B[3]&0x10)<<3;
-		  A[10]|=(B[2]&0x10)>>2;
-			
-						A[11]|=(B[1]&0x10)<<2;
-		  A[11]|=(B[0]&0x10)<<3;
-		  A[11]|=(B[4]&0x10)>>2;
-			
-			A[12]|=(B[5]&0x10)<<2;
-		  A[12]|=(B[6]&0x10)<<3;
-		  A[12]|=(B[7]&0x10)>>2;
-			
-			A[13]|=(B[3]&0x40);
-		  A[13]|=(B[2]&0x40)<<1;
-		  A[13]|=(B[1]&0x40)>>4;
-			
-			A[14]|=(B[4]&0x40)>>6;
- 	
- 
-				 		 wating();
-delay(duty/3+5);
-	 GPIOA->ODR=0x00; 
-		 for (i=0;i<8;i++){
-		delay(2);
-			 B[i]=(GPIOB->IDR) ;
-			  	GPIOA->ODR+=0x10; 
-			 
-		 }
-		 
-		  A[0]|=(B[3]&0x01)<<5;
-		 A[0]|=(B[2]&0x01)<<1;
-		 A[0]|=(B[1]&0x01)<<3;
-		 
-		 A[1]|=(B[0]&0x01)<<5;
-		 A[1]|=(B[4]&0x01)<<1;
-		 A[1]|=(B[5]&0x01)<<3;
-		 
-		 
-		 A[2]|=(B[6]&0x01)<<5;
-		 A[2]|=(B[7]&0x01)<<1;
-		 A[2]|=(B[4]&0x02)<<2;
-		 
-		   A[3]|=(B[2]&0x02)<<4;
-		  A[3]|=(B[1]&0x02)<<0;
-		  A[3]|=(B[0]&0x02)<<2;
-		 
-		  A[4]|=(B[5]&0x02)<<4;
-		  A[4]|=(B[6]&0x02)<<0;
-		  A[4]|=(B[7]&0x02)<<2;
-		 
- 	  A[5]|=(B[3]&0x02)<<4;
-		  A[5]|=(B[2]&0x20)>>4;
-		  A[5]|=(B[3]&0x20)>>2;
-
-			A[6]|=(B[0]&0x20);
-		  A[6]|=(B[4]&0x20)>>4;
-		  A[6]|=(B[7]&0x20)>>2;
-			
-			A[7]|=(B[5]&0x20);
-		  A[7]|=(B[6]&0x20)>>4;
-		  A[7]|=(B[4]&0x08);
-					
-			A[8]|=(B[5]&0x08)<<2;
-		  A[8]|=(B[6]&0x08)>>2;
-		  A[8]|=(B[7]&0x08);
-			
-				A[9]|=(B[3]&0x08)<<2;
-		  A[9]|=(B[2]&0x08)>>2;
-		  A[9]|=(B[1]&0x08) ;
-			
-				A[10]|=(B[0]&0x08)<<2;
-		  A[10]|=(B[3]&0x10)>>3;
-		  A[10]|=(B[2]&0x10)>>1;
- 
-			A[11]|=(B[1]&0x10)<<1;
-		  A[11]|=(B[0]&0x10)>>3;
-		  A[11]|=(B[4]&0x10)>>1;
-			
-			A[12]|=(B[5]&0x10)<<1;
-		  A[12]|=(B[6]&0x10)>>3;
-		  A[12]|=(B[7]&0x10)>>1;
-			
-			A[13]|=(B[3]&0x40)>>1;
-		  A[13]|=(B[2]&0x40)>>5;
-		  A[13]|=(B[1]&0x40)>>3;
-			
-			A[14]|=(B[4]&0x40)>>5;
-			
-				 		 wating();
-delay(duty*2/3+5);
-	 GPIOA->ODR=0x00; 
-		 for (i=0;i<8;i++){
-		delay(2);
-			 B[i]=(GPIOB->IDR) ;
-			  	GPIOA->ODR+=0x10; 
-			 
-		 }
-		  A[0]|=(B[3]&0x01)<<0;
-		 A[0]|=(B[2]&0x01)<<4;
-		
-	  A[1]|=(B[0]&0x01)<<0;
-		 A[1]|=(B[4]&0x01)<<4;
-
-		 A[2]|=(B[6]&0x01)<<0;
-		 A[2]|=(B[7]&0x01)<<4;
-		 
-		   A[3]|=(B[2]&0x02)>>1;
-		  A[3]|=(B[1]&0x02)<<3;
-		 
-		 
-      A[4]|=(B[5]&0x02)>>1;
-		  A[4]|=(B[6]&0x02)<<3;
-
-		   A[5]|=(B[3]&0x02)>>1;
-		  A[5]|=(B[2]&0x20)>>1;
- 
-			A[6]|=(B[0]&0x20)>>5;
-		  A[6]|=(B[4]&0x20)>>1;
-		 
- 			A[7]|=(B[5]&0x20)>>5;
-		 A[7]|=(B[6]&0x20)>>1;
-
-			A[8]|=(B[5]&0x08)>>3;
-		  A[8]|=(B[6]&0x08)<<1;
- 
- 				A[9]|=(B[3]&0x08)>>3;
-		  A[9]|=(B[2]&0x08)<<1;
-	 
- 
- 			A[10]|=(B[0]&0x08)>>3;
-		  A[10]|=(B[3]&0x10);
-		
-			A[11]|=(B[1]&0x10)>>4;
-		  A[11]|=(B[0]&0x10) ;
-			
-			A[12]|=(B[5]&0x10)>>4;
-		  A[12]|=(B[6]&0x10) ;
-			
-				A[13]|=(B[3]&0x40)>>6;
-		  A[13]|=(B[2]&0x40)>>2;
-			
-			A[14]|=(B[4]&0x40)>>4;
-			sum=0;
-			for (i=0;i<14;i++){
-				if((A[i]&0x01)==0)j=i;
-				 switch (A[i]|0x01){
-			case 0x03:{x1=0;break;}
-			case 0x9f:{x1=1;break;}
-			case 0x25:{x1=2;break;}
-			case 0x0d:{x1=3;break;}
-			case 0x99:{x1=4;break;}
-			case 0x49:{x1=5;break;}
-			case 0x41:{x1=6;break;}
-			case 0x1b:{x1=7;break;}
-			case 0x01:{x1=8;break;}
-			case 0x09:{x1=9;break;}
-					 default:{x1=0;break;}
-			
-		}
-				sum+=x1*pow(10,i);
-			}
-			sumatinon[s]=sum;
-			sum=0;
-			if(s>0){
-				if(sumatinon[s]!=sumatinon[s-1])s--;
-			}
-			
-		}
-			sum=sumatinon[2]/pow(10,j);
-			
-
-		//beep
-
-		
-		
-		///rial or toman
-		
-//		 		pa1=(A[0]&(0x80))>>7;
-//			pa1|=(A[0]&(0x2));
-//			pa1|=(A[0]&(0x10))>>2;
-//		sprintf(buf, "pa1:%x\n",pa1);
-//  HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000); 
-//			pa2=(A[0]&(0x04))>>2;
-//			pa2|=(A[0]&(0x08))>>2;
-//			pa2|=0x04;
-//		sprintf(buf, "pa2:%x\n",pa2);
-//  HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000); 
-//		
-//				sprintf(buf, "pa2:%x\n",A[14]);
-//  HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000); 
-//		if(A[14]==pa1){
-//					sum=sum*10000;
-//		}
-//		else if(A[14]==pa2){
-//					sum=sum*10;
-//		}
-sum=sum*m;
-//	for(i=0;i<500;i++){
-//wating();	
-//	 
-//		 	GPIOA->ODR=0x40; 
-//		delay(3);
-//		pa3=(GPIOB->IDR)&0x40;
-//			GPIOA->ODR=0x20; 
-//				delay(3);
-//		pa1=(GPIOB->IDR)&0x00;
-//				GPIOA->ODR=0x10; 
-//				delay(3);
-//		pa1=(GPIOB->IDR)&0x00;
-//		
- 
-		//	GPIOA->ODR=0x40; 
-//while(1){
-// 			 	 sprintf(buf, "q%x\n",(GPIOB->IDR)&0x40);
-//  HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000); 
-//}
-// 
-//	
-	
-//		  	 sprintf(buf, "sum:%f\n", read());
-//  HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);
-	
-	/*
-					wating();
-	sum1=read();
-		sum=sum1;
-		 //sum2=read();
-//		 if(sum1==sum2){
-//			 
-//			 sum=sum1;
-//}
-//		 else{
-//			 sum=read();
-//		 }
-// for(i=0;i<100;i++)buf[i]=0;
-//	 sprintf(buf,"sum==x:%f\n" ,sum);
-// HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);
- */
- for( i=0;i<50;i++){
-								buf5[i-12]=0;
-								}
-  sprintf(buf5,"%0.f",sum);
-		 for( i=0;i<14;i++){
-								arduino[i]=0;
-								}	
-//pos pax ethernet
-								/*
-							 sprintf(arduino,"A%0.fB",sum);//pos pax ethernet
-								HAL_UART_Transmit(&huart1, (uint8_t*)arduino,  COUNTOF(arduino)-1, 5000);	
-								*/
-				//pos pax rs232	
- for( i=0;i<250;i++){
-								bufpax[i]=0;
-								}								
-														 sprintf(bufpax,"%0.f",sum);
-							int len =strlen(bufpax);							
-						//pos_1	sprintf(hex2,"54454A415241545F42414E4B303230303030303030303034303%c3%c3%c3%c3%c3%c3%c3%c3%c3%c3%c",buf5[len-18],buf5[len-17],buf5[len-16],buf5[len-15],buf5[len-14], buf5[len-13],buf5[len-12],buf5[len-11],buf5[len-10],buf5[len-9],buf5[len-8] );
-/*pos_mapna_rs232	*/
-			/*			 sprintf(hex2,"54454A415241545F42414E4B303230303030303030303034303%c3%c3%c3%c3%c3%c3%c3%c3%c3%c3%c",buf5[len-18],buf5[len-17],buf5[len-16],buf5[len-15],buf5[len-14], buf5[len-13],buf5[len-12],buf5[len-11],buf5[len-10],buf5[len-9],buf5[len-8] );
-							char asciiStr[100];
-							for(int i = 0; i < 151; i +=2)
-							{
-								asciiStr[i/2] = getHexVal(hex2[i])*16 + getHexVal(hex2[i+1]);
-								HAL_UART_Transmit(&huart1, (uint8_t*)(asciiStr+i/2), 1, 5000);
-							} */
-	/*pos_pax_rs232	_a80*/
-		/*						
-						 //sprintf(hex2,"54454A415241545F42414E4B303230303030303030303034303%c3%c3%c3%c3%c3%c3%c3%c3%c3%c3%c",buf5[len-18],buf5[len-17],buf5[len-16],buf5[len-15],buf5[len-14], buf5[len-13],buf5[len-12],buf5[len-11],buf5[len-10],buf5[len-9],buf5[len-8] );
-							if(len<10){
-								sprintf(bufpax,"027400000001726EB11B810%d",len);
-							}
-							else{
-									sprintf(bufpax,"027400000001726EB11B81%d",len);
-							}
-							char part1[250];
-							for(int i = 0; i < 24; i +=2)
-							{
-								part1[i/2] = getHexVal(bufpax[i])*16 + getHexVal(bufpax[i+1]);
-								HAL_UART_Transmit(&huart1, (uint8_t*)(part1+i/2), 1, 5000);
-							}
-						 
-			  sprintf(buf5,"%0.f",sum);				
-									HAL_UART_Transmit(&huart1, (uint8_t*)buf5,  len, 5000);	
-		sprintf(bufpax,"820AD4E4C7D3E53A3130300A830101840103850100B24FA11B810431303030820130830130840130850130860130870130880130A230A10C8105D4E4C7D3E58203313030A1118106446C6C5665728207322E312E302E31A10D81065072675665728203312E3031C1E704");			
-							for(int i =0; i < 215; i +=2)	
-							{
-								part1[i/2] = getHexVal(bufpax[i])*16 + getHexVal(bufpax[i+1]);
-								HAL_UART_Transmit(&huart1, (uint8_t*)(part1+i/2), 1, 5000);
-							}
-							*/
-/*pos_pax_rs232_s800	*/
-char part1[250];
-						sprintf(bufpax,"0017010430363030060c");
-						for(int i =0; i < 20; i +=2)	
-							{
-								part1[i/2] = getHexVal(bufpax[i])*16 + getHexVal(bufpax[i+1]);
-								HAL_UART_Transmit(&huart1, (uint8_t*)(part1+i/2), 1, 5000);
-							}
-							 sprintf(buf5,"%0.f",sum);				
-									HAL_UART_Transmit(&huart1, (uint8_t*)buf5, 12, 5000);	
-	sprintf(bufpax,"0d0130");
-						for(int i =0; i < 6; i +=2)	
-							{
-								part1[i/2] = getHexVal(bufpax[i])*16 + getHexVal(bufpax[i+1]);
-								HAL_UART_Transmit(&huart1, (uint8_t*)(part1+i/2), 1, 5000);
-							}
-							
- 	 	GPIOA->ODR=0x80; 
-	 delay(1000);
-				 	GPIOA->ODR=0x00; 
-	 }
-	 }
- else if (cont>100000){
-	 cont=0;
-	 pa1=0;
-	 pa2=0;
-	 A[14]=0;
-	 			 GPIOA->ODR=0x10; 
-			 			  wating();
-
-duty=0;
-	while((GPIOB->IDR)&(0x20)){
-		delay(1);
-		duty++;
-		 
-	 }
-	 	 wating();
-		 GPIOA->ODR=0x00; 
-		 for (i=0;i<8;i++){
-		delay(2);
-			 B[i]=(GPIOB->IDR);
-			  	GPIOA->ODR+=0x10; 
-			 
-		 }
-		  GPIOA->ODR=0x00; 
-	
-		pa1=(B[2]&0x01);
-		pa2=(B[1]&0x01);  
-			A[14]=(B[4]&0x40)>>6;
- 
-				 		 wating();
-delay(duty/3+5);
-	 GPIOA->ODR=0x00; 
-		 for (i=0;i<8;i++){
-		delay(2);
-			 B[i]=(GPIOB->IDR) ;
-			  	GPIOA->ODR+=0x10; 
-			 
-		 }
-		 
- GPIOA->ODR=0x00; 
-		 pa1|=(B[2]&0x01)<<1;
-			
-			
-			A[14]|=(B[4]&0x40)>>5;
-
-	 		 wating();
-delay(duty*2/3+5);
-	 GPIOA->ODR=0x00; 
-		 for (i=0;i<8;i++){
-		delay(2);
-			 B[i]=(GPIOB->IDR) ;
-			  	GPIOA->ODR+=0x10; 
-			 
-		 }
-		  GPIOA->ODR=0x00; 
-		pa1|=(B[2]&0x01)<<2;
-		pa2|=(B[1]&0x01)<<2;
-			A[14]|=(B[4]&0x40)>>4;
-		 
-
-//		 		 sprintf(buf,"pa1:%d//pa2:%d//pa3:%d\n",pa1,pa2,A[14]);
-// HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);
-	lastm=m;
-		 wating();
-		s=0;
-		 	GPIOA->ODR=0x40;
-		 for(i=0;i<(2*duty);i++){
-			 delay(1);
-			 if(((GPIOB->IDR)&(0x40))){
-				s++;
-			 }
-		 }
-		 if(s>30){
-//			 sprintf(buf,"k:%d....%d\n",s,duty);
-// HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);
-			 s=0;
-			 
-		 if(pa2!=pa1){
-		if(A[14]==pa1){
-			m=10;
-		}
-		else if(A[14]==pa2){
-		m=10000;
-	}
- 
- 
-
-		
- }
-		 }
-		 else{
-			 m=1;
-		 }
-//		 		 sprintf(buf,"m:%f \n",m);
-// HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);
-		 		if(lastm!=m){
-	 if(m==10000){
-		 for(i=0;i<1;i++){
-			 	 	GPIOA->ODR=0x80; 
-	 delay(1000);
-				 	GPIOA->ODR=0x00; 
-			  delay(2000);
-			 
-		 }
-		 
-	 }
-	 else if(m==10){
-		 for(i=0;i<1;i++){
-			 	 	GPIOA->ODR=0x80; 
-	 delay(1000);
-				 	GPIOA->ODR=0x00; 
-			  delay(2000);
-			 
-		 }
-	 }
-	 else if (m==1){
-		 for(i=0;i<1;i++){
-			 	 	GPIOA->ODR=0x80; 
-	 delay(500);
-				 	GPIOA->ODR=0x00; 
-			  delay(1000);
-			 
-		 }
-		 
-	 }
-		 
-		}
-}
-		 
-else{
-cont++;
-}	
-	
+		} 
  }//end while
 	}//end main
  
