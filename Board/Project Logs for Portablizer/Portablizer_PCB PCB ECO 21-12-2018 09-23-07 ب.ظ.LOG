@@ -1,0 +1,164 @@
+Removed Pin From Net: NetName=5V_POS Pin=AP1-2
+Change Component Comment : Designator=RR6 Old Comment=1.8k; 1% New Comment=33k; 1%
+Change Component Comment : Designator=RR4 Old Comment=10k; 1% New Comment=5.6k; 1%
+Change Component Comment : Designator=P2 Old Comment=Header 4H New Comment=POS_CONNECTOR
+Change Component Designator: OldDesignator=RR1 NewDesignator=RR2
+Change Component Designator: OldDesignator=RR2 NewDesignator=RR1_1
+Change Component Designator: OldDesignator=RR3 NewDesignator=RR1_2
+Change component parameters: Designator = "RC4"; Footprint = "WCAP-PSLC 10x12.4x4.5"; UniqueID = "\EKILREHK"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Application"; Value = "Low voltage port filtering, appplid to high-end switching power supply, PC(desktop,laptop ),industrial computer, VGA card, server power, charger, TV, digital set-top box,DC-DC power module, game machine etc which consume large current with high speed circuit."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Capacitance"; Value = "680 µF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Characteristics"; Value = "Aluminum Polymer Capacitors; Recommended soldering: Reflow; Operating temperature: –55 °C to +105 °C; Large capacitance SMD product series; Very low ESR at high frequency range; High permissible ripple current; Long life and high reliability; Load life: 2000 h @ +105 °C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/pbs/datasheet/875075361006.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Created Date"; Value = "6/8/2015"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "E-mail"; Value = "libraries@we-online.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Wurth Elektronik"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "partNo"; Value = "875075361006"; VariantName = "[No Variations]"
+Change component parameters: Designator = "RC8"; Footprint = "WCAP-PSLC 10x12.4x4.5"; UniqueID = "\DYRSNFVT"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Application"; Value = "Low voltage port filtering, appplid to high-end switching power supply, PC(desktop,laptop ),industrial computer, VGA card, server power, charger, TV, digital set-top box,DC-DC power module, game machine etc which consume large current with high speed circuit."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Capacitance"; Value = "680 µF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Characteristics"; Value = "Aluminum Polymer Capacitors; Recommended soldering: Reflow; Operating temperature: –55 °C to +105 °C; Large capacitance SMD product series; Very low ESR at high frequency range; High permissible ripple current; Long life and high reliability; Load life: 2000 h @ +105 °C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/pbs/datasheet/875075361006.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Created Date"; Value = "6/8/2015"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "E-mail"; Value = "libraries@we-online.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Wurth Elektronik"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "partNo"; Value = "875075361006"; VariantName = "[No Variations]"
+Change component parameters: Designator = "RR4"; Footprint = "C1206"; UniqueID = "\ADWSWRIM"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "Axial Device, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "5.6k; 1%"; VariantName = "[No Variations]"
+Change component parameters: Designator = "RR6"; Footprint = "C1206"; UniqueID = "\SLIWQIBP"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "Axial Device, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "33k; 1%"; VariantName = "[No Variations]"
+Added Component: Designator=GQ2(SOT23_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer Link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.semiconductors.philips.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.semiconductors.philips.com/acrobat/datasheets/PMBT3904_4.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "27-Apr-1999"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "12-Dec-2006"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "IPC-7351 Footprint Added."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "3-Pin SOT-23 Package 0.95 mm Pitch, 2.3 mm Lead Span"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "SOT23"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "May-1999"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "17-Sep-2003"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=GR7(C1206)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "4.7k"; VariantName = "[No Variations]"
+Added Component: Designator=GR8(C1206)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "4.7k"; VariantName = "[No Variations]"
+Added Component: Designator=GR9(C1206)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "47k"; VariantName = "[No Variations]"
+Added Component: Designator=GR10(C1206)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "4.7k"; VariantName = "[No Variations]"
+Added Component: Designator=P1(HDR1X4H)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=UR9(c1206)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "29-May-2009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "IPC-7351 Footprint Added."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Chip Resistor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "J1-0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Added Component: Designator=UR10(c1206)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "29-May-2009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "IPC-7351 Footprint Added."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Chip Resistor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "J1-0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "5.6K"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=3.3V Pin=AP1-2
+Added Pin To Net: NetName=GND Pin=GQ2-2
+Added Pin To Net: NetName=V12 Pin=GR7-2
+Added Pin To Net: NetName=GND Pin=GR9-1
+Added Pin To Net: NetName=3.3V Pin=P1-1
+Added Pin To Net: NetName=GND Pin=P1-4
+Added Pin To Net: NetName=NetU1_23 Pin=UR7-1
+Added Pin To Net: NetName=NetU1_22 Pin=UR8-1
+Added Pin To Net: NetName=GND Pin=UR10-2
+Change Net Name : Old Net Name=NetRR2_1 New Net Name=NetRR1_1_1
+Change Net Name : Old Net Name=PA0 New Net Name=NetB1_10
+Added Net: Name=NetB1_11
+Added Pin To Net: NetName=NetB1_12 Pin=P1-2
+Added Pin To Net: NetName=NetB1_12 Pin=UR5-1
+Added Net: Name=NetB1_12
+Added Pin To Net: NetName=NetB1_13 Pin=P1-3
+Added Pin To Net: NetName=NetB1_13 Pin=UR3-2
+Added Net: Name=NetB1_13
+Added Pin To Net: NetName=NetB1_14 Pin=GR8-2
+Added Net: Name=NetB1_14
+Added Pin To Net: NetName=NetB1_15 Pin=UR9-1
+Added Pin To Net: NetName=NetB1_15 Pin=UR10-1
+Added Net: Name=NetB1_15
+Added Pin To Net: NetName=NetB1_21 Pin=SU1-10
+Added Net: Name=NetB1_21
+Added Pin To Net: NetName=NetB1_22 Pin=SU1-12
+Added Net: Name=NetB1_22
+Added Pin To Net: NetName=NetB1_30 Pin=UR1-2
+Added Pin To Net: NetName=NetB1_30 Pin=UR4-1
+Added Net: Name=NetB1_30
+Added Pin To Net: NetName=NetB1_31 Pin=UR2-1
+Added Pin To Net: NetName=NetB1_31 Pin=UR6-1
+Added Net: Name=NetB1_31
+Added Pin To Net: NetName=NetGQ2_1 Pin=GQ2-1
+Added Pin To Net: NetName=NetGQ2_1 Pin=GR8-1
+Added Pin To Net: NetName=NetGQ2_1 Pin=GR9-2
+Added Net: Name=NetGQ2_1
+Added Pin To Net: NetName=NetGQ2_3 Pin=GQ2-3
+Added Pin To Net: NetName=NetGQ2_3 Pin=GR7-1
+Added Pin To Net: NetName=NetGQ2_3 Pin=GR10-1
+Added Pin To Net: NetName=NetGQ2_3 Pin=U1-39
+Added Net: Name=NetGQ2_3
+Added Pin To Net: NetName=NetGR10_2 Pin=GR10-2
+Added Net: Name=NetGR10_2
+Added Pin To Net: NetName=NetU1_42 Pin=U1-42
+Added Pin To Net: NetName=NetU1_42 Pin=UR9-2
+Added Net: Name=NetU1_42
+Added Pin To Net: NetName=PB3 Pin=AP1-5
+Added Net: Name=PB3
+Added Pin To Net: NetName=RESET Pin=AC1-1
+Added Pin To Net: NetName=RESET Pin=AP1-6
+Added Pin To Net: NetName=RESET Pin=AR1-2
+Added Net: Name=RESET
+Added Member To Class: ClassName=Portablizer_SCH Member=Component GQ2 PMBT3904
+Added Member To Class: ClassName=Portablizer_SCH Member=Component GR7 4.7k
+Added Member To Class: ClassName=Portablizer_SCH Member=Component GR8 4.7k
+Added Member To Class: ClassName=Portablizer_SCH Member=Component GR9 47k
+Added Member To Class: ClassName=Portablizer_SCH Member=Component GR10 4.7k
+Added Member To Class: ClassName=Portablizer_SCH Member=Component P1 DEBUG
+Added Member To Class: ClassName=Portablizer_SCH Member=Component UR9 Res3
+Added Member To Class: ClassName=Portablizer_SCH Member=Component UR10 Res3
+Added Room: Name=Portablizer_SCH

@@ -1,0 +1,153 @@
+Removed Pin From Net: NetName=5V_POS Pin=AP1-2
+Change Component Comment : Designator=RR6 Old Comment=1.8k; 1% New Comment=33k; 1%
+Change Component Comment : Designator=RR4 Old Comment=10k; 1% New Comment=5.6k; 1%
+Change Component Comment : Designator=P2 Old Comment=Header 4H New Comment=POS_CONNECTOR
+Change Component Designator: OldDesignator=RR1 NewDesignator=RR2
+Change Component Designator: OldDesignator=RR2 NewDesignator=RR1_1
+Change Component Designator: OldDesignator=RR3 NewDesignator=RR1_2
+Added Component: Designator=B1(QFP50P900X900X160-48N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "STM32F100C8T6B"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.arrow.com/en/products/stm32f100c8t6b/stmicroelectronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Geometry.Height"; Value = "1.6mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "STMicroelectronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "STM32F100C8T6B"; VariantName = "[No Variations]"
+Added Component: Designator=GQ2(SOT23_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer Link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.semiconductors.philips.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.semiconductors.philips.com/acrobat/datasheets/PMBT3904_4.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "27-Apr-1999"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "12-Dec-2006"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "IPC-7351 Footprint Added."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "3-Pin SOT-23 Package 0.95 mm Pitch, 2.3 mm Lead Span"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "SOT23"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "May-1999"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "17-Sep-2003"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=GR7(C1206)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "4.7k"; VariantName = "[No Variations]"
+Added Component: Designator=GR8(C1206)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "4.7k"; VariantName = "[No Variations]"
+Added Component: Designator=GR9(C1206)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "47k"; VariantName = "[No Variations]"
+Added Component: Designator=GR10(C1206)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "4.7k"; VariantName = "[No Variations]"
+Added Component: Designator=P1(HDR1X4H)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=UR9(c1206)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "29-May-2009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "IPC-7351 Footprint Added."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Chip Resistor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "J1-0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Added Component: Designator=UR10(c1206)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "29-May-2009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "IPC-7351 Footprint Added."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Chip Resistor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "J1-0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "5.6K"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=3.3V Pin=AP1-2
+Added Pin To Net: NetName=3.3V Pin=B1-1
+Added Pin To Net: NetName=GND Pin=B1-8
+Added Pin To Net: NetName=3.3V Pin=B1-9
+Added Pin To Net: NetName=PA0 Pin=B1-10
+Added Pin To Net: NetName=GND Pin=B1-23
+Added Pin To Net: NetName=3.3V Pin=B1-24
+Added Pin To Net: NetName=PA13 Pin=B1-34
+Added Pin To Net: NetName=GND Pin=B1-35
+Added Pin To Net: NetName=3.3V Pin=B1-36
+Added Pin To Net: NetName=PA14 Pin=B1-37
+Added Pin To Net: NetName=GND Pin=B1-44
+Added Pin To Net: NetName=GND Pin=B1-47
+Added Pin To Net: NetName=3.3V Pin=B1-48
+Added Pin To Net: NetName=GND Pin=GQ2-2
+Added Pin To Net: NetName=V12 Pin=GR7-2
+Added Pin To Net: NetName=GND Pin=GR9-1
+Added Pin To Net: NetName=3.3V Pin=P1-1
+Added Pin To Net: NetName=GND Pin=P1-4
+Added Pin To Net: NetName=NetU1_23 Pin=UR7-1
+Added Pin To Net: NetName=NetU1_22 Pin=UR8-1
+Added Pin To Net: NetName=GND Pin=UR10-2
+Change Net Name : Old Net Name=NetRR2_1 New Net Name=NetRR1_1_1
+Change Net Name : Old Net Name=PA0 New Net Name=NetB1_10
+Added Pin To Net: NetName=NetB1_11 Pin=B1-11
+Added Net: Name=NetB1_11
+Added Pin To Net: NetName=NetB1_12 Pin=B1-12
+Added Pin To Net: NetName=NetB1_12 Pin=P1-2
+Added Pin To Net: NetName=NetB1_12 Pin=UR5-1
+Added Net: Name=NetB1_12
+Added Pin To Net: NetName=NetB1_13 Pin=B1-13
+Added Pin To Net: NetName=NetB1_13 Pin=P1-3
+Added Pin To Net: NetName=NetB1_13 Pin=UR3-2
+Added Net: Name=NetB1_13
+Added Pin To Net: NetName=NetB1_14 Pin=B1-14
+Added Pin To Net: NetName=NetB1_14 Pin=GR8-2
+Added Net: Name=NetB1_14
+Added Pin To Net: NetName=NetB1_15 Pin=B1-15
+Added Pin To Net: NetName=NetB1_15 Pin=B1-32
+Added Pin To Net: NetName=NetB1_15 Pin=UR9-1
+Added Pin To Net: NetName=NetB1_15 Pin=UR10-1
+Added Net: Name=NetB1_15
+Added Pin To Net: NetName=NetB1_21 Pin=B1-21
+Added Pin To Net: NetName=NetB1_21 Pin=SU1-10
+Added Net: Name=NetB1_21
+Added Pin To Net: NetName=NetB1_22 Pin=B1-22
+Added Pin To Net: NetName=NetB1_22 Pin=SU1-12
+Added Net: Name=NetB1_22
+Added Pin To Net: NetName=NetB1_30 Pin=B1-30
+Added Pin To Net: NetName=NetB1_30 Pin=UR1-2
+Added Pin To Net: NetName=NetB1_30 Pin=UR4-1
+Added Net: Name=NetB1_30
+Added Pin To Net: NetName=NetB1_31 Pin=B1-31
+Added Pin To Net: NetName=NetB1_31 Pin=UR2-1
+Added Pin To Net: NetName=NetB1_31 Pin=UR6-1
+Added Net: Name=NetB1_31
+Added Pin To Net: NetName=NetGQ2_1 Pin=GQ2-1
+Added Pin To Net: NetName=NetGQ2_1 Pin=GR8-1
+Added Pin To Net: NetName=NetGQ2_1 Pin=GR9-2
+Added Net: Name=NetGQ2_1
+Added Pin To Net: NetName=NetGQ2_3 Pin=GQ2-3
+Added Pin To Net: NetName=NetGQ2_3 Pin=GR7-1
+Added Pin To Net: NetName=NetGQ2_3 Pin=GR10-1
+Added Pin To Net: NetName=NetGQ2_3 Pin=U1-39
+Added Net: Name=NetGQ2_3
+Added Pin To Net: NetName=NetGR10_2 Pin=GR10-2
+Added Net: Name=NetGR10_2
+Added Pin To Net: NetName=NetU1_42 Pin=U1-42
+Added Pin To Net: NetName=NetU1_42 Pin=UR9-2
+Added Net: Name=NetU1_42
+Added Pin To Net: NetName=PB3 Pin=AP1-5
+Added Pin To Net: NetName=PB3 Pin=B1-39
+Added Net: Name=PB3
+Added Pin To Net: NetName=RESET Pin=AC1-1
+Added Pin To Net: NetName=RESET Pin=AP1-6
+Added Pin To Net: NetName=RESET Pin=AR1-2
+Added Pin To Net: NetName=RESET Pin=B1-7
+Added Net: Name=RESET
+Added Member To Class: ClassName=Portablizer_SCH Member=Component B1 STM32F100C8T6B
+Added Member To Class: ClassName=Portablizer_SCH Member=Component GQ2 PMBT3904
+Added Member To Class: ClassName=Portablizer_SCH Member=Component GR7 4.7k
+Added Member To Class: ClassName=Portablizer_SCH Member=Component GR8 4.7k
+Added Member To Class: ClassName=Portablizer_SCH Member=Component GR9 47k
+Added Member To Class: ClassName=Portablizer_SCH Member=Component GR10 4.7k
+Added Member To Class: ClassName=Portablizer_SCH Member=Component P1 DEBUG
+Added Member To Class: ClassName=Portablizer_SCH Member=Component RR1_2 1k; 1%
+Added Member To Class: ClassName=Portablizer_SCH Member=Component RR2 4.7k; 1%
+Added Member To Class: ClassName=Portablizer_SCH Member=Component UR9 Res3
+Added Member To Class: ClassName=Portablizer_SCH Member=Component UR10 Res3
+Added Room: Name=Portablizer_SCH
