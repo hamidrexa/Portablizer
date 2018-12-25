@@ -1,0 +1,63 @@
+Change Component Description : Designator=RC4 Old Description=WCAP-PSLC Aluminum Polymer Capacitors , 680 µF; + / - 20%; 16 V , 10 x 12,4 New Description=WCAP-PSLC Aluminum Polymer Capacitors , 680 µF; + / - 20%; 16 V , 10 x 12,4
+Change Component Description : Designator=RC8 Old Description=WCAP-PSLC Aluminum Polymer Capacitors , 680 µF; + / - 20%; 16 V , 10 x 12,4 New Description=WCAP-PSLC Aluminum Polymer Capacitors , 680 µF; + / - 20%; 16 V , 10 x 12,4
+Change component parameters: Designator = "RC4"; Footprint = "WCAP-PSLC 10x12.4x4.5"; UniqueID = "\EKILREHK"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Application"; Value = "Low voltage port filtering, appplid to high-end switching power supply, PC(desktop,laptop ),industrial computer, VGA card, server power, charger, TV, digital set-top box,DC-DC power module, game machine etc which consume large current with high speed circuit."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Capacitance"; Value = "680 µF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Characteristics"; Value = "Aluminum Polymer Capacitors; Recommended soldering: Reflow; Operating temperature: –55 °C to +105 °C; Large capacitance SMD product series; Very low ESR at high frequency range; High permissible ripple current; Long life and high reliability; Load life: 2000 h @ +105 °C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/pbs/datasheet/875075361006.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Created Date"; Value = "6/8/2015"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "E-mail"; Value = "libraries@we-online.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Wurth Elektronik"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "partNo"; Value = "875075361006"; VariantName = "[No Variations]"
+Change component parameters: Designator = "RC8"; Footprint = "WCAP-PSLC 10x12.4x4.5"; UniqueID = "\DYRSNFVT"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Application"; Value = "Low voltage port filtering, appplid to high-end switching power supply, PC(desktop,laptop ),industrial computer, VGA card, server power, charger, TV, digital set-top box,DC-DC power module, game machine etc which consume large current with high speed circuit."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Capacitance"; Value = "680 µF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Characteristics"; Value = "Aluminum Polymer Capacitors; Recommended soldering: Reflow; Operating temperature: –55 °C to +105 °C; Large capacitance SMD product series; Very low ESR at high frequency range; High permissible ripple current; Long life and high reliability; Load life: 2000 h @ +105 °C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/pbs/datasheet/875075361006.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Created by"; Value = "Karrer Zheng"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Created Date"; Value = "6/8/2015"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "E-mail"; Value = "libraries@we-online.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Wurth Elektronik"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "partNo"; Value = "875075361006"; VariantName = "[No Variations]"
+Added Component: Designator=B1(QFP50P900X900X160-48N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "STM32F100C8T6B"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.arrow.com/en/products/stm32f100c8t6b/stmicroelectronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Geometry.Height"; Value = "1.6mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "STMicroelectronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "STM32F100C8T6B"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=3.3V Pin=B1-1
+Added Pin To Net: NetName=RESET Pin=B1-7
+Added Pin To Net: NetName=GND Pin=B1-8
+Added Pin To Net: NetName=3.3V Pin=B1-9
+Added Pin To Net: NetName=NetB1_10 Pin=B1-10
+Added Pin To Net: NetName=NetB1_11 Pin=B1-11
+Added Pin To Net: NetName=NetB1_12 Pin=B1-12
+Added Pin To Net: NetName=NetB1_13 Pin=B1-13
+Added Pin To Net: NetName=NetB1_14 Pin=B1-14
+Added Pin To Net: NetName=NetB1_21 Pin=B1-21
+Added Pin To Net: NetName=NetB1_22 Pin=B1-22
+Added Pin To Net: NetName=GND Pin=B1-23
+Added Pin To Net: NetName=3.3V Pin=B1-24
+Added Pin To Net: NetName=NetB1_30 Pin=B1-30
+Added Pin To Net: NetName=NetB1_31 Pin=B1-31
+Added Pin To Net: NetName=NetB1_32 Pin=B1-32
+Added Pin To Net: NetName=PA13 Pin=B1-34
+Added Pin To Net: NetName=GND Pin=B1-35
+Added Pin To Net: NetName=3.3V Pin=B1-36
+Added Pin To Net: NetName=PA14 Pin=B1-37
+Added Pin To Net: NetName=PB3 Pin=B1-39
+Added Pin To Net: NetName=GND Pin=B1-44
+Added Pin To Net: NetName=GND Pin=B1-47
+Added Pin To Net: NetName=3.3V Pin=B1-48
+Added Member To Class: ClassName=Portablizer_SCH Member=Component B1 STM32F100C8T6B
+Added Room: Name=Portablizer_SCH
