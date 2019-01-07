@@ -1,5 +1,0 @@
-Removed Pin From Net: NetName=NetGQ2_3 Pin=GQ2-1
-Removed Pin From Net: NetName=NetGQ2_1 Pin=GQ2-3
-Added Pin To Net: NetName=NetGQ2_1 Pin=GQ2-1
-Added Pin To Net: NetName=NetGQ2_3 Pin=GQ2-3
-Added Room: Name=Portablizer_SCH

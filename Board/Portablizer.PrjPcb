@@ -73,23 +73,6 @@ GenerateClassCluster=0
 DocumentUniqueId=FNECLCYW
 
 [Document3]
-DocumentPath=Portablizer1\Portablizer.SCHLIB
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=KHYXFHMB
-
-[Document4]
 DocumentPath=..\..\..\gps\GPS\board\PCB_Project\Portablizer_PCB.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -106,8 +89,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KHKUHUWM
 
-[Document5]
-DocumentPath=Altium\Imported PADS Libraries.PrjPcb\QFP50P900X900X160-48N.PcbLib
+[Document4]
+DocumentPath=Portablizer.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -122,10 +105,6 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
-
-[GeneratedDocument1]
-DocumentPath=Project Outputs for Portablizer\Board Information - Portablizer_PCB.html
-DItemRevisionGUID=
 
 [Configuration1]
 Name=Sources

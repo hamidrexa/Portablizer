@@ -1,6 +1,0 @@
-Added Component: Designator=sw1(TE FSMSMTR)
-Add component. Clean all parameters for all variants
-Added Pin To Net: NetName=GND Pin=sw1-1
-Added Pin To Net: NetName=NetGR10_2 Pin=sw1-2
-Added Member To Class: ClassName=Portablizer_SCH Member=Component sw1 Switch PB
-Added Room: Name=Portablizer_SCH
